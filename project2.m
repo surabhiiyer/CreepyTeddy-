@@ -2,11 +2,13 @@ function project2()
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Load Image Sets
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%imageSet(fullfile('dataset', 'Faces_easy')), ...
+%            imageSet(fullfile('dataset', 'cup')), ...
+%            imageSet(fullfile('dataset', 'pizza')), ...
+%
 
 imgSets = [ imageSet(fullfile('dataset', 'ceiling_fan')), ...
-            imageSet(fullfile('dataset', 'scissors')), ...
-            imageSet(fullfile('dataset', 'pizza')), ...
-            imageSet(fullfile('dataset', 'cup')) ];
+            imageSet(fullfile('dataset', 'scissors'))];
 { imgSets.Description } % display all labels on one line
 [imgSets.Count] 
 
@@ -24,32 +26,49 @@ imgSets = [ imageSet(fullfile('dataset', 'ceiling_fan')), ...
 
 
  bag = bagOfFeatures(imgSets);
-
- fvp=[];
- for i = 1:imgSets(1).Count
-     p = read(imgSets(1), i);
-     % p=p(1 : 2 : end, 1 : 2 : end); 
-     fvp = [fvp;encode(bag, p)];
- end
  
-
+ features =[];
+ output=[];
  
-fvb=[];
- for i = 1:imgSets(2).Count
-     b = read(imgSets(2), i);
-    % b=b(1 : 2 : end, 1 : 2 : end); 
-     fvb = [fvb;encode(bag, b)];
+ for j=1:4
+     for i = 1:imgSets(j).Count
+         j
+        img = read(imgSets(j), i);
+        features = [features;encode(bag, img)];
+        output = [output;j];
+     end    
  end
+
+%  fvp=[];
+%  for i = 1:imgSets(1).Count
+%      p = read(imgSets(1), i);
+%      fvp = [fvp;encode(bag, p)];
+%  end
+%  
+% 
+%  
+% fvb=[];
+%  for i = 1:imgSets(2).Count
+%      b = read(imgSets(2), i);
+%     % b=b(1 : 2 : end, 1 : 2 : end); 
+%      fvb = [fvb;encode(bag, b)];
+%  end
 
  test = read(testSet(1), 1);
  
  fvtest = encode(bag, test);
- x= ones(imgSets(1).Count,1);
- y = 2* ones(imgSets(2).Count,1);
- output=[x;y];
- features = [fvp;fvb];
- svmStruct = svmtrain(features,[x;y]);
+%  x= ones(imgSets(1).Count,1);
+%  y = 2 * ones(imgSets(2).Count,1);
+%  output=[x;y];
+%  features = [fvp;fvb];
+
+ svmStruct = svmtrain(features,output);
+ 
  g=svmclassify(svmStruct,fvtest)
+ 
+ 
+ %cp =classperf(output)
+%classperf(cp,g,test);cp.CorrectRate
  
 
 % 
