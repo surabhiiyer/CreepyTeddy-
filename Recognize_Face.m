@@ -10,8 +10,8 @@ currentimage = imread('test.jpg');
 gray_scale = rgb2gray(currentimage);
 temp = imresize(gray_scale,[112 92]);
 imwrite(temp,'test.pgm');
-figure; 
-imshow(temp);title('temp')
+% figure; 
+% imshow(temp);title('temp')
 
 %person = 1;
 %queryImage = read(test(person),1); 
@@ -20,7 +20,7 @@ queryFeatures = extractHOGFeatures(queryImage);
 personLabel = predict(faceClassifier, queryFeatures); 
 % Mapping back to teh training set to find the identitiy 
 booleanIndex = strcmp(personLabel, personIndex); 
-integerIndex = find(booleanIndex); 
-figure; 
-subplot(1,2,1); imshow(queryImage); title('test query face'); 
-subplot(1,2,2); imshow(read(training(integerIndex),1)); title('matched class') 
+integerIndex = find(booleanIndex);
+% figure; 
+% subplot(1,2,1); imshow(queryImage); title('test query face'); 
+% subplot(1,2,2); imshow(read(training(integerIndex),1)); title('Matched Class') 

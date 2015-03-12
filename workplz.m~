@@ -31,7 +31,7 @@ elseif (result == 2)
 elseif (result == 3)
     Recognize_Face(faceClassifier,personIndex,training);
     [y,Fs] = audioread('money.m4a');
-    sound(y,Fs)
+    
 end
 
 end

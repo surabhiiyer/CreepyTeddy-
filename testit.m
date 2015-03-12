@@ -21,7 +21,7 @@ icon = ind2rgb(img,map);
 % Create a uipushtool in the toolbar
 p = uipushtool(t,'TooltipString','Toolbar push button',...
                  'ClickedCallback',...
-                 'workplz(snapshot(camera),bag,svmStruct);');
+                 'workplz(snapshot(camera),bag,svmStruct,faceClassifier,personIndex,training);');
 
 % Set the button icon
 p.CData = icon;
