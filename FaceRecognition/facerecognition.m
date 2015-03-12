@@ -10,8 +10,8 @@
 %    figure 
 %    imshow(temp)
 % end
-
 % load images from the att face database 
+
 faceDatabase = imageSet('/Users/surabhiravishankar/Documents/MATLAB/ML_Proj/att_faces','recursive'); 
 figure;
 montage(faceDatabase(1).ImageLocation); 
@@ -19,7 +19,6 @@ title('Single Face')
 
 personToQuery = 1; 
 galleryImage = read(faceDatabase(personToQuery),1); 
-
 
 %imshow(galleryImage);
 
@@ -76,7 +75,7 @@ imwrite(temp,'test.pgm');
 figure; 
 imshow(temp);title('temp')
 
-person = 1;
+%person = 1;
 queryImage = read(test(person),1); 
 % queryImage = imread('test.pgm'); 
 queryFeatures = extractHOGFeatures(queryImage);                                             
