@@ -24,8 +24,8 @@ person = 1;
 
 [hofFeatures, visualization] = ... 
     extractHOGFeatures(read(training(person),1));
+
 % figure; 
-% 
 % %Find the hog features and display it 
 % subplot(2,1,1); 
 % imshow(read(training(person),1)); title('Input Face'); 

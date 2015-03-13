@@ -22,5 +22,5 @@ personLabel = predict(faceClassifier, queryFeatures);
 booleanIndex = strcmp(personLabel, personIndex); 
 integerIndex = find(booleanIndex);
 % figure; 
-% subplot(1,2,1); imshow(queryImage); title('test query face'); 
-% subplot(1,2,2); imshow(read(training(integerIndex),1)); title('Matched Class') 
+% subplot(1,2,1); imshow(queryImage); title('Rawan - test image'); 
+% subplot(1,2,2); imshow(read(training(integerIndex),1)); title('Matched Class of Image') 

@@ -12,6 +12,13 @@ if ~isempty(snapshot)
  %getting the fetures of the snapshot
  fvtest = encode(bag, test);
 
+ % Plot the histogram of visual word occurrences
+% figure
+% bar(fvtest)
+% title('Visual word occurrences')
+% xlabel('Visual word index')
+% ylabel('Frequency of occurrence')
+
  result = 0;
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -32,7 +39,7 @@ if ~isempty(snapshot)
 
 if (result == 1)
     Recognize_Face(faceClassifier,personIndex,training);
-    [y,Fs] = audioread('sound/stranger.m4a');
+    [y,Fs] = audioread('sound/rawan.m4a');
     sound(y,Fs)
 elseif (result == 2)
     Recognize_Face(faceClassifier,personIndex,training);
