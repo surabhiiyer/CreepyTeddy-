@@ -38,17 +38,17 @@ if ~isempty(snapshot)
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 if (result == 1)
-    Recognize_Face(faceClassifier,personIndex,training);
+    Recognize_Face(classifier,pIndex,training_set);
     [y,Fs] = audioread('sound/rawan.m4a');
     sound(y,Fs)
-elseif (result == 2)
-    Recognize_Face(faceClassifier,personIndex,training);
-    [y,Fs] = audioread('sound/touch.m4a');
-    sound(y,Fs)
-elseif (result == 3)
-    Recognize_Face(faceClassifier,personIndex,training);
-    [y,Fs] = audioread('sound/money.m4a');
-    sound(y,Fs)
+% elseif (result == 2)
+%     Recognize_Face(faceClassifier,personIndex,training);
+%     [y,Fs] = audioread('sound/touch.m4a');
+%     sound(y,Fs)
+% elseif (result == 3)
+%     Recognize_Face(faceClassifier,personIndex,training);
+%     [y,Fs] = audioread('sound/money.m4a');
+%     sound(y,Fs)
 end
 
 end

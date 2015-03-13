@@ -1,4 +1,3 @@
-
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Training
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -28,11 +27,11 @@ preview(camera);
 % Create window with the capture button
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-f = figure;
+f = figure('Position',[500 500 150 80]);
 pb = uicontrol(f,'Style','pushbutton','String','Capture',...
     'Callback','detectObject(snapshot(camera),bag,svmStruct,faceClassifier,personIndex,training)',...
-                'Position',[30 20 100 30])
-%t = uitoolbar(f);
+                'Position',[30 20 100 30]);
+
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % when the button is detected it will take a snapshot and and call the

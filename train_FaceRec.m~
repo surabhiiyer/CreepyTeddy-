@@ -1,7 +1,6 @@
 % Reading the face database 
 face_db = imageSet('att_faces','recursive'); 
 
-% Display all the faces - set of 10. 
 % figure;
 % montage(face_db(1).ImageLocation); 
 
@@ -17,16 +16,16 @@ p = 1;
 
 %Hog features for one person in the trainig set. 
 
-[hog, hog_rep] = ... 
+[hogFeatures, visualization] = ... 
     extractHOGFeatures(read(training_set(p),1));
 
-% figure; 
-% Find the hog features and display it 
-% subplot(2,1,1); 
-% imshow(read(training_set(p),1)); title('Input Face'); 
-% subplot(2,1,2); 
-% plot(hog_rep); 
-% title('Hog Features'); 
+figure; 
+%Find the hog features and display it 
+subplot(2,1,1); 
+imshow(read(training_set(p),1)); title('Input Face'); 
+subplot(2,1,2); 
+plot(visualization); 
+title('Hog Features'); 
 
 trained_features = zeros(size(training_set,2)*training_set(1).Count,4680); 
 
